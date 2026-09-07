@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+db/regulation_impact.db
+exports/*.csv
+benchmarks/results.json
+.venv/
+venv/
+.DS_Store
+*.Rhistory
