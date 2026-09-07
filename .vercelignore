@@ -1,15 +1,20 @@
 # This deployment is the static frontend only (see docs/DEPLOYMENT.md) --
 # ignore the Python backend, R, VBA, tests, and data so Vercel's zero-config
 # detection doesn't try to auto-build src/api.py as a serverless function.
-src/
-data/
-db/
-r_analysis/
-vba/
-tests/
-scripts/
-benchmarks/
-docs/
-requirements.txt
-pytest.ini
-.venv/
+#
+# Every pattern is anchored to the repo root (leading "/") -- an unanchored
+# pattern like "src/" or "data/" matches ANY directory with that name at ANY
+# depth, which previously also matched (and deleted) frontend/src/ and
+# frontend/public/data/, breaking the very build this file is meant to fix.
+/src/
+/data/
+/db/
+/r_analysis/
+/vba/
+/tests/
+/scripts/
+/benchmarks/
+/docs/
+/requirements.txt
+/pytest.ini
+/.venv/
