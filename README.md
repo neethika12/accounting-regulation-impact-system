@@ -83,3 +83,9 @@ The 15 FASB standards and their dates are real public record. The firm-level
 adoption/restatement/audit-fee panel is synthetic by necessity (see
 [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md)) — this is disclosed here
 deliberately rather than presented as real compliance data.
+
+## Live demo
+
+The dashboard is deployable to Vercel as a static site (pre-generated JSON
+snapshots, no hosted backend needed) — see
+[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).

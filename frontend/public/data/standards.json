@@ -1,0 +1,152 @@
+[
+  {
+    "asu_number": "2014-09",
+    "topic_code": "606",
+    "title": "Revenue from Contracts with Customers",
+    "issued_date": "2014-05-28",
+    "comment_deadline": "2013-03-13",
+    "effective_date_public": "2017-12-15",
+    "effective_date_other": "2018-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2016-02",
+    "topic_code": "842",
+    "title": "Leases",
+    "issued_date": "2016-02-25",
+    "comment_deadline": "2013-09-13",
+    "effective_date_public": "2018-12-15",
+    "effective_date_other": "2019-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2016-13",
+    "topic_code": "326",
+    "title": "Financial Instruments - Credit Losses (CECL)",
+    "issued_date": "2016-06-16",
+    "comment_deadline": "2016-05-31",
+    "effective_date_public": "2019-12-15",
+    "effective_date_other": "2022-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2017-04",
+    "topic_code": "350",
+    "title": "Simplifying the Test for Goodwill Impairment",
+    "issued_date": "2017-01-26",
+    "comment_deadline": "2016-05-30",
+    "effective_date_public": "2019-12-15",
+    "effective_date_other": "2021-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2017-09",
+    "topic_code": "718",
+    "title": "Scope of Modification Accounting (Stock Compensation)",
+    "issued_date": "2017-05-10",
+    "comment_deadline": "2016-11-18",
+    "effective_date_public": "2017-12-15",
+    "effective_date_other": "2017-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2018-15",
+    "topic_code": "350-40",
+    "title": "Customer's Accounting for Implementation Costs in a Cloud Computing Arrangement",
+    "issued_date": "2018-08-29",
+    "comment_deadline": "2018-05-11",
+    "effective_date_public": "2019-12-15",
+    "effective_date_other": "2020-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2019-12",
+    "topic_code": "740",
+    "title": "Simplifying the Accounting for Income Taxes",
+    "issued_date": "2019-12-18",
+    "comment_deadline": "2019-07-05",
+    "effective_date_public": "2020-12-15",
+    "effective_date_other": "2021-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2020-04",
+    "topic_code": "848",
+    "title": "Reference Rate Reform (LIBOR Transition)",
+    "issued_date": "2020-03-12",
+    "comment_deadline": "2020-02-06",
+    "effective_date_public": "2020-03-12",
+    "effective_date_other": "2020-03-12",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2021-08",
+    "topic_code": "805",
+    "title": "Accounting for Contract Assets and Liabilities from Contracts with Customers",
+    "issued_date": "2021-10-28",
+    "comment_deadline": "2021-08-04",
+    "effective_date_public": "2022-12-15",
+    "effective_date_other": "2023-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2022-03",
+    "topic_code": "820",
+    "title": "Fair Value Measurement of Equity Securities Subject to Contractual Sale Restrictions",
+    "issued_date": "2022-06-30",
+    "comment_deadline": "2021-11-01",
+    "effective_date_public": "2023-12-15",
+    "effective_date_other": "2024-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2022-06",
+    "topic_code": "848",
+    "title": "Deferral of the Sunset Date of Topic 848",
+    "issued_date": "2022-12-21",
+    "comment_deadline": "2022-11-01",
+    "effective_date_public": "2022-12-21",
+    "effective_date_other": "2022-12-21",
+    "early_adoption_permitted": 0
+  },
+  {
+    "asu_number": "2023-01",
+    "topic_code": "842",
+    "title": "Common Control Arrangements (Leases Amendment)",
+    "issued_date": "2023-03-27",
+    "comment_deadline": "2022-11-01",
+    "effective_date_public": "2023-12-15",
+    "effective_date_other": "2023-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2023-09",
+    "topic_code": "740",
+    "title": "Improvements to Income Tax Disclosures",
+    "issued_date": "2023-12-14",
+    "comment_deadline": "2023-05-30",
+    "effective_date_public": "2024-12-15",
+    "effective_date_other": "2025-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2024-01",
+    "topic_code": "718",
+    "title": "Scope Application of Profits Interest Awards (Stock Compensation)",
+    "issued_date": "2024-03-21",
+    "comment_deadline": "2023-11-09",
+    "effective_date_public": "2024-12-15",
+    "effective_date_other": "2025-12-15",
+    "early_adoption_permitted": 1
+  },
+  {
+    "asu_number": "2024-03",
+    "topic_code": "220-40",
+    "title": "Disaggregation of Income Statement Expenses (DISE)",
+    "issued_date": "2024-11-04",
+    "comment_deadline": "2023-10-30",
+    "effective_date_public": "2026-12-15",
+    "effective_date_other": "2027-12-15",
+    "early_adoption_permitted": 1
+  }
+]
