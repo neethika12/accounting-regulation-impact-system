@@ -7,19 +7,20 @@ so db/regulation_impact.db exists.
 from __future__ import annotations
 
 import sqlite3
+import tempfile
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from . import db
+from . import db, impact_metrics, ingest
 from .pipeline import run_pipeline
 
 app = FastAPI(title="Accounting Regulation Impact API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -111,6 +112,55 @@ def summary() -> dict:
         "avg_restatement_rate": avg_restatement,
         "avg_deliberation_lag_days": avg_deliberation,
     }
+
+
+@app.post("/api/upload")
+async def upload_standards(file: UploadFile = File(...)) -> dict:
+    """Validate and analyze a user-supplied CSV of ASU standards.
+
+    Runs the uploaded file through the exact same code the real pipeline
+    uses (src.ingest.load_asu_csv, generate_firm_panel, impact_metrics) --
+    a bad file is rejected with the real ValidationError message, not a
+    reimplemented check. Nothing is persisted: everything runs against a
+    throwaway SQLite database in a temp directory for this request only.
+    """
+    content = await file.read()
+
+    with tempfile.NamedTemporaryFile(mode="wb", suffix=".csv", delete=False) as tmp_csv:
+        tmp_csv.write(content)
+        csv_path = Path(tmp_csv.name)
+
+    try:
+        records = ingest.load_asu_csv(csv_path)
+    except ingest.ValidationError as e:
+        return {"valid": False, "error": str(e)}
+    except (KeyError, UnicodeDecodeError) as e:
+        return {"valid": False, "error": f"Could not parse CSV: {e}"}
+    finally:
+        csv_path.unlink(missing_ok=True)
+
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        tmp_db_path = Path(tmp_dir) / "upload_test.db"
+        db.init_db(tmp_db_path)
+        with db.get_connection(tmp_db_path) as conn:
+            ingest.load_standards(conn, records)
+            panel = ingest.generate_firm_panel(records, n_firms=40, seed=42)
+            ingest.load_firm_panel(conn, panel)
+            metrics = impact_metrics.compute_all_metrics(conn)
+
+    standards_by_number = {r.asu_number: r for r in records}
+    enriched_metrics = [
+        {
+            **m,
+            "title": standards_by_number[m["asu_number"]].title,
+            "topic_code": standards_by_number[m["asu_number"]].topic_code,
+            "issued_date": standards_by_number[m["asu_number"]].issued_date.isoformat(),
+            "effective_date_public": standards_by_number[m["asu_number"]].effective_date_public.isoformat(),
+        }
+        for m in metrics
+    ]
+
+    return {"valid": True, "n_standards": len(records), "metrics": enriched_metrics}
 
 
 @app.get("/api/benchmarks")

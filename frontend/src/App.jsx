@@ -1,8 +1,10 @@
 import AdoptionMixChart from "./components/AdoptionMixChart";
+import GuidePanel from "./components/GuidePanel";
 import RestatementScatter from "./components/RestatementScatter";
 import StandardsTable from "./components/StandardsTable";
 import StandardsTimeline from "./components/StandardsTimeline";
 import SummaryCards from "./components/SummaryCards";
+import TryYourOwnData from "./components/TryYourOwnData";
 import { api } from "./lib/api";
 import { useApiData } from "./lib/useApiData";
 
@@ -43,6 +45,10 @@ export default function App() {
           </p>
         </header>
 
+        <div className="mb-5">
+          <GuidePanel />
+        </div>
+
         {error ? (
           <ErrorBanner error={error} />
         ) : (
@@ -54,6 +60,7 @@ export default function App() {
               <RestatementScatter metrics={metrics} />
             </div>
             <StandardsTable metrics={metrics} />
+            <TryYourOwnData />
             <footer className="pb-4 text-center text-xs text-slate-400 dark:text-slate-600">
               Standards metadata is real (public FASB record). Firm-level adoption
               timing, restatements, and audit fees are synthetic (seeded, reproducible)

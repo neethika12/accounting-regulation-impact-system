@@ -20,8 +20,24 @@ async function getJson(key) {
   return res.json();
 }
 
+// Always hits the real backend (local FastAPI in dev via the Vite proxy,
+// or the Vercel serverless function in production at the same /api/upload
+// path) -- unlike the routes above, this isn't backed by a static snapshot
+// because it processes whatever file the user just uploaded.
+async function uploadStandards(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  const res = await fetch("/api/upload", { method: "POST", body: formData });
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error(body.detail || `${res.status} ${res.statusText}`);
+  }
+  return res.json();
+}
+
 export const api = {
   summary: () => getJson("summary"),
   standards: () => getJson("standards"),
   metrics: () => getJson("metrics"),
+  uploadStandards,
 };
