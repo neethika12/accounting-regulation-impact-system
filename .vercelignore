@@ -1,0 +1,15 @@
+# This deployment is the static frontend only (see docs/DEPLOYMENT.md) --
+# ignore the Python backend, R, VBA, tests, and data so Vercel's zero-config
+# detection doesn't try to auto-build src/api.py as a serverless function.
+src/
+data/
+db/
+r_analysis/
+vba/
+tests/
+scripts/
+benchmarks/
+docs/
+requirements.txt
+pytest.ini
+.venv/
