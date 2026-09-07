@@ -2,5 +2,8 @@
   "framework": null,
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/dist",
-  "installCommand": "echo 'handled in buildCommand'"
+  "installCommand": "echo 'handled in buildCommand'",
+  "rewrites": [
+    { "source": "/api/:match*", "destination": "/api/index" }
+  ]
 }
